@@ -8,7 +8,11 @@ hooks:
     - location: scripts/install_dependencies
       timeout: 300
       runas: root
-    - location: scripts/start_server
+  AfterInstall:
+    - location: scripts/setup_server
+      timeout: 300
+      runas: mysway
+    - location: scripts/restart_server
       timeout: 300
       runas: root
   ApplicationStop:
