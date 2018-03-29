@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /*
-    destination: /home/ec2_user/dj_trumph/
+    destination: /home/mysway/cicd.com/djtrump/
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies
@@ -13,5 +13,9 @@ hooks:
       runas: root
   ApplicationStop:
     - location: scripts/stop_server
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/start_server
       timeout: 300
       runas: root
